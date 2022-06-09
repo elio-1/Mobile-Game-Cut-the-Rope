@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3981735482917694246}
   - component: {fileID: 3981735482917694244}
   - component: {fileID: 3981735482917694247}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RopePart
   m_TagString: Untagged
   m_Icon: {fileID: 0}

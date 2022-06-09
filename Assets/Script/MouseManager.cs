@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseManager : MonoBehaviour
 {
-  
+    [SerializeField] LayerMask _layerMask;
     void Start()
     {
         
@@ -14,9 +14,19 @@ public class MouseManager : MonoBehaviour
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Debug.DrawRay(ray.origin, mousePos, Color.red, Mathf.Infinity);
 
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, _layerMask);
 
+        transform.position = mousePos;
+
+        if (hit.collider != null)
+        {
+            GameObject collision =  hit.collider.gameObject;
+            collision.GetComponentInParent<Rope>().m_isCut = true;
+            collision.SetActive(false);
+        }
     }
 }
