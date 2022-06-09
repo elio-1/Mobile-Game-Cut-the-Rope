@@ -37,7 +37,17 @@ public class Player : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             m_candyEaten++;
+            _animator.SetTrigger("Eating");
             _hasEatACandyEvent.Invoke();
+        }
+        
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Candy"))
+        {
+        _animator.ResetTrigger("Eating");
+           
         }
     }
 

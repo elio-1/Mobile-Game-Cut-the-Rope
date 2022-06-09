@@ -16,7 +16,6 @@ public class MouseManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.DrawRay(ray.origin, mousePos, Color.red, Mathf.Infinity);
 
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, _layerMask);
 
